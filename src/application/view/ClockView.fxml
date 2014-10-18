@@ -1,7 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.StackPane?>
 
-<fx:root xmlns:fx="http://javafx.com/fxml/1" type="StackPane">
-	<!-- TODO Add Nodes -->
-</fx:root>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<center>
+		<AnchorPane prefHeight="96.0" prefWidth="285.0"
+			BorderPane.alignment="CENTER">
+			<children>
+				<SplitPane
+					dividerPositions="0.017723513194170936, 0.1870815281606932, 0.21071287908625444, 0.3800708940527767"
+					prefHeight="78.0" prefWidth="285.0">
+					<items>
+						<AnchorPane maxHeight="80.0" maxWidth="80.0"
+							prefHeight="0.0" prefWidth="0.0">
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+							<children>
+								<TextFlow layoutX="-72.0" layoutY="-69.0" prefHeight="131.0"
+									prefWidth="128.0" AnchorPane.bottomAnchor="0.0"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="0.0" />
+							</children>
+						</AnchorPane>
+						<Separator orientation="VERTICAL" prefHeight="200.0" />
+						<AnchorPane maxHeight="80.0" maxWidth="80.0"
+							prefHeight="80.0" prefWidth="68.0">
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+							<children>
+								<TextFlow layoutX="-60.0" layoutY="-45.0" prefHeight="155.0"
+									prefWidth="140.0" AnchorPane.bottomAnchor="0.0"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="0.0" />
+							</children>
+						</AnchorPane>
+						<Separator orientation="VERTICAL" prefHeight="200.0" />
+						<AnchorPane maxHeight="80.0" maxWidth="80.0"
+							prefHeight="0.0" prefWidth="0.0">
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+							<children>
+								<TextFlow layoutX="-20.0" layoutY="-54.0" prefHeight="146.0"
+									prefWidth="180.0" AnchorPane.bottomAnchor="0.0"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="0.0" />
+							</children>
+						</AnchorPane>
+					</items>
+				</SplitPane>
+				<AnchorPane layoutX="32.0" layoutY="87.0">
+					<children>
+						<Button mnemonicParsing="false" text="+" />
+						<Button layoutX="61.0" mnemonicParsing="false" text="Change Mode" />
+						<Button layoutX="170.0" mnemonicParsing="false" text="Cancel" />
+						<Button layoutX="25.0" mnemonicParsing="false" text="-" />
+					</children>
+				</AnchorPane>
+			</children>
+		</AnchorPane>
+	</center>
+</BorderPane>

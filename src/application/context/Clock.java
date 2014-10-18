@@ -1,10 +1,14 @@
 package application.context;
 
 import java.util.Calendar;
+
+import javafx.fxml.FXML;
 import application.states.*;
 
 public class Clock {
+	@FXML
 	public Calendar Time;
+	@FXML
 	public IState CurrentState;
 	
 	public Clock(){
