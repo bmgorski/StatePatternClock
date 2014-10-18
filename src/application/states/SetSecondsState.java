@@ -13,14 +13,14 @@ public class SetSecondsState extends StateBase{
 
 	@Override
 	public void increment() {
-		AClock.Time.add(Calendar.SECOND, 1);
-		AClock.rePaintTimeControls();
+		aClock.getTime().add(Calendar.SECOND, 1);
+		aClock.rePaintTimeControls();
 	}
 
 	@Override
 	public void decrement() {
-		AClock.Time.add(Calendar.SECOND, -1);
-		AClock.rePaintTimeControls();
+		aClock.getTime().add(Calendar.SECOND, -1);
+		aClock.rePaintTimeControls();
 	}
 
 	@Override

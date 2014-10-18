@@ -3,27 +3,27 @@ package application.states;
 import application.context.*;
 
 public abstract class StateBase implements IState {
-	protected Clock AClock;
+	protected Clock aClock;
 	
 	public StateBase(Clock clock){
-		AClock=clock;
+		aClock=clock;
 	}
 	
 	@Override
 	public void changeMode(){
 		if(this instanceof DisplayTimeState){
-			AClock.setState(new SetHoursState(AClock));
-			AClock.toggleUpdateButtons(true);
+			aClock.setState(new SetHoursState(aClock));
+			aClock.toggleUpdateButtons(true);
 		}
 		else if(this instanceof SetHoursState){
-			AClock.setState(new SetMinutesState(AClock));		
+			aClock.setState(new SetMinutesState(aClock));		
 		}
 		else if(this instanceof SetMinutesState){
-			AClock.setState(new SetSecondsState(AClock));
+			aClock.setState(new SetSecondsState(aClock));
 		}
 		else if(this instanceof SetSecondsState){
-			AClock.setState(new DisplayTimeState(AClock));
-			AClock.toggleUpdateButtons(false);
+			aClock.setState(new DisplayTimeState(aClock));
+			aClock.toggleUpdateButtons(false);
 		}
 	}
 	
@@ -33,14 +33,14 @@ public abstract class StateBase implements IState {
 			//the state diagram show that cancel button isn't present on displaytime mode.  So this should never be invoked.
 		}
 		else if(this instanceof SetHoursState){
-			AClock.setState(new DisplayTimeState(AClock));
-			AClock.toggleUpdateButtons(false);
+			aClock.setState(new DisplayTimeState(aClock));
+			aClock.toggleUpdateButtons(false);
 		}
 		else if(this instanceof SetMinutesState){
-			AClock.setState(new SetHoursState(AClock));
+			aClock.setState(new SetHoursState(aClock));
 		}
 		else if(this instanceof SetSecondsState){
-			AClock.setState(new SetMinutesState(AClock));
+			aClock.setState(new SetMinutesState(aClock));
 		}
 	}
 	

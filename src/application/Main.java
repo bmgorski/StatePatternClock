@@ -14,6 +14,9 @@ public class Main extends Application {
 		try {
 			primaryStage.setTitle("Simple Clock");
 			
+			Clock clockController = new Clock();
+			
+			
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("view/ClockView.fxml"));
             
 			BorderPane root = loader.load();
@@ -21,11 +24,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root,300,120);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
-			/** uncomment these lines and debug to see how changeMode flow is working
-			Clock aclock = new Clock();
-			aclock.changeMode();
-			aclock.changeMode();
-			**/
+
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();

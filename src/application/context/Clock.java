@@ -2,46 +2,59 @@ package application.context;
 
 import java.util.Calendar;
 
+import javafx.beans.Observable;
+import javafx.beans.binding.LongBinding;
+import javafx.beans.value.ObservableLongValue;
+import javafx.beans.value.ObservableNumberValue;
 import javafx.fxml.FXML;
 import application.states.*;
 
 public class Clock {
 	@FXML
-	public Calendar Time;
-	@FXML
-	public IState CurrentState;
+	private Calendar time;
 	
+	@FXML
+	private IState currentState;
+	
+	@FXML
+	private ObservableLongValue longValue = new LongBinding() {
+		@Override
+		protected long computeValue() {
+			return getTime().getTimeInMillis();
+		}
+	}; 
+
 	public Clock(){
-		Time = Calendar.getInstance();
-		CurrentState = new DisplayTimeState(this);
+		time = Calendar.getInstance();
+		currentState = new DisplayTimeState(this);
 	}
 	
 	/**
 	 * + button event handler.  Off loads the logic to the current state.
 	 */
 	public void increment(){
-		CurrentState.increment();
+		currentState.increment();
 	}
 	
 	/**
 	 * - button event handler.  Off loads the logic to current state.
 	 */
 	public void decrement(){
-		CurrentState.decrement();
+		currentState.decrement();
 	}
 	
 	/**
 	 * change mode button event handler
 	 */
 	public void changeMode(){
-		CurrentState.changeMode();
+		currentState.changeMode();
 	}
 	
 	/**
 	 * cancel button event handler
 	 */
 	public void cancel(){
-		CurrentState.cancel();
+		currentState.cancel();
 	}
 	
 	/**
@@ -49,7 +62,7 @@ public class Clock {
 	 * states call this method from their changeMode() implementation
 	 */
 	public void setState(IState nextState){
-		CurrentState = nextState;
+		currentState = nextState;
 		setHighlightedUnit();
 	}
 	
@@ -70,11 +83,11 @@ public class Clock {
 	 */
 	private void setHighlightedUnit(){
 		
-		if(CurrentState instanceof SetHoursState){
+		if(currentState instanceof SetHoursState){
 			//TODO add code to highlight hours
-		}else if (CurrentState instanceof SetMinutesState){
+		}else if (currentState instanceof SetMinutesState){
 			//TODO add code to highlight minutes
-		}else if (CurrentState instanceof SetSecondsState){
+		}else if (currentState instanceof SetSecondsState){
 			//TODO add code to highlight seconds
 		}
 		
@@ -88,5 +101,27 @@ public class Clock {
 		//TODO add code to redraw the time controls
 	}
 	
-	
+	public Calendar getTime() {
+		return time;
+	}
+
+	public void setTime(Calendar time) {
+		this.time = time;
+	}
+
+	public IState getCurrentState() {
+		return currentState;
+	}
+
+	public void setCurrentState(IState currentState) {
+		this.currentState = currentState;
+	}
+
+	public ObservableLongValue getLongValue() {
+		return longValue;
+	}
+
+	protected void setLongValue(ObservableLongValue longValue) {
+		this.longValue = longValue;
+	}
 }

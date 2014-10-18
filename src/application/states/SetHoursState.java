@@ -13,14 +13,14 @@ public class SetHoursState extends StateBase{
 
 	@Override
 	public void increment() {
-		AClock.Time.add(Calendar.HOUR, 1);
-		AClock.rePaintTimeControls();
+		aClock.getTime().add(Calendar.HOUR, 1);
+		aClock.rePaintTimeControls();
 	}
 
 	@Override
 	public void decrement() {
-		AClock.Time.add(Calendar.HOUR, -1);
-		AClock.rePaintTimeControls();
+		aClock.getTime().add(Calendar.HOUR, -1);
+		aClock.rePaintTimeControls();
 	}
 
 	@Override
