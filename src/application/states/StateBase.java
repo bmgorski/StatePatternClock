@@ -4,7 +4,7 @@ import application.context.*;
 
 public abstract class StateBase implements IState {
 	protected Clock aClock;
-	
+
 	public StateBase(Clock clock){
 		aClock=clock;
 	}
@@ -13,6 +13,7 @@ public abstract class StateBase implements IState {
 	public void changeMode(){
 		if(this instanceof DisplayTimeState){
 			aClock.setState(new SetHoursState(aClock));
+		
 			aClock.toggleUpdateButtons(true);
 		}
 		else if(this instanceof SetHoursState){

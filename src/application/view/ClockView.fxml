@@ -23,10 +23,14 @@
 								<Insets />
 							</opaqueInsets>
 							<children>
-								<TextFlow layoutX="-72.0" layoutY="-69.0" prefHeight="131.0"
+								<TextFlow fx:id="txtFlwHours" layoutX="-72.0" layoutY="-69.0" prefHeight="131.0"
 									prefWidth="128.0" AnchorPane.bottomAnchor="0.0"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="0.0" />
+									AnchorPane.topAnchor="0.0" style="-fx-background-color: white;">
+										<Text fx:id= "txtHours">
+											1
+										</Text>
+									</TextFlow>
 							</children>
 						</AnchorPane>
 						<Separator orientation="VERTICAL" prefHeight="200.0" />
@@ -36,10 +40,14 @@
 								<Insets />
 							</opaqueInsets>
 							<children>
-								<TextFlow layoutX="-60.0" layoutY="-45.0" prefHeight="155.0"
+								<TextFlow fx:id="txtFlwMinutes" layoutX="-60.0" layoutY="-45.0" prefHeight="155.0"
 									prefWidth="140.0" AnchorPane.bottomAnchor="0.0"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="0.0" />
+									AnchorPane.topAnchor="0.0" style="-fx-background-color: white;">
+									<Text fx:id= "txtMinutes">
+										1
+									</Text>
+								</TextFlow>
 							</children>
 						</AnchorPane>
 						<Separator orientation="VERTICAL" prefHeight="200.0" />
@@ -49,10 +57,14 @@
 								<Insets />
 							</opaqueInsets>
 							<children>
-								<TextFlow layoutX="-20.0" layoutY="-54.0" prefHeight="146.0"
+								<TextFlow fx:id="txtFlwSeconds" layoutX="-20.0" layoutY="-54.0" prefHeight="146.0"
 									prefWidth="180.0" AnchorPane.bottomAnchor="0.0"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="0.0" />
+									AnchorPane.topAnchor="0.0" style="-fx-background-color: white;">
+									<Text fx:id= "txtSeconds">
+										1
+									</Text>
+								</TextFlow>
 							</children>
 						</AnchorPane>
 					</items>

@@ -9,19 +9,34 @@ import javafx.beans.value.ObservableNumberValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import application.states.*;
+import java.util.Timer;
 
 public class Clock {
 	 @FXML private Button btnIncrement;
 	 @FXML private Button btnChange;
 	 @FXML private Button btnCancel;
 	 @FXML private Button btnDecrement;
+	private final String highlightStyle="-fx-background-color: yellow;";
+	private final String notHightlightStyle="-fx-background-color: white;";
+		
 	 
 	@FXML
 	private Calendar time;
 	
+	private Timer timer;
+	
+	
 	@FXML
 	private IState currentState;
+	
+	@FXML
+	private TextFlow txtFlwHours, txtFlwMinutes,txtFlwSeconds;
+	
+	@FXML
+	private Text txtHours,	txtMinutes, txtSeconds;
 	
 	@FXML
 	private ObservableLongValue longValue = new LongBinding() {
@@ -51,9 +66,11 @@ public class Clock {
 		cancel();
 	}
 	
+	
 	public Clock(){
 		time = Calendar.getInstance();
 		currentState = new DisplayTimeState(this);
+		
 	}
 	
 	/**
@@ -91,6 +108,7 @@ public class Clock {
 	public void setState(IState nextState){
 		currentState = nextState;
 		setHighlightedUnit();
+		
 	}
 	
 	/**
@@ -102,6 +120,12 @@ public class Clock {
 		btnCancel.setVisible(showButtons);
 	}
 	
+	private void updateTimeControls(){
+		txtHours.setText(Integer.toString(time.HOUR));
+		txtMinutes.setText(Integer.toString(time.MINUTE));
+		txtHours.setText(Integer.toString(time.SECOND));
+	}
+	
 	/**
 	 * Hightlights the units being edited based off the type of the current state.  
 	 * We could have done this in the state's themselves but it is easier to consolidate it here.
@@ -109,12 +133,25 @@ public class Clock {
 	private void setHighlightedUnit(){
 		
 		if(currentState instanceof SetHoursState){
-			//TODO add code to highlight hours
+			txtFlwHours.setStyle(highlightStyle);
+			txtFlwMinutes.setStyle(notHightlightStyle);
+			txtFlwSeconds.setStyle(notHightlightStyle);
+			
 		}else if (currentState instanceof SetMinutesState){
-			//TODO add code to highlight minutes
+			txtFlwHours.setStyle(notHightlightStyle);
+			txtFlwMinutes.setStyle(highlightStyle);
+			txtFlwSeconds.setStyle(notHightlightStyle);
+			
 		}else if (currentState instanceof SetSecondsState){
-			//TODO add code to highlight seconds
+			txtFlwHours.setStyle(notHightlightStyle);
+			txtFlwMinutes.setStyle(notHightlightStyle);
+			txtFlwSeconds.setStyle(highlightStyle);
+		}else{
+			txtFlwHours.setStyle(notHightlightStyle);
+			txtFlwMinutes.setStyle(notHightlightStyle);
+			txtFlwSeconds.setStyle(notHightlightStyle);
 		}
+		
 		
 	}
 	

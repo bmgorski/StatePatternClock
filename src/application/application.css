@@ -1,3 +1,6 @@
-body{
-	-fx-background-color:red;
+.highlighted{
+	-fx-background-color: yellow;
+}
+.notHighlighted{
+	-fx-background-color: white;
 }
