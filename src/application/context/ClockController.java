@@ -19,7 +19,7 @@ import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 import application.states.*;
 
-public class Clock implements Initializable {
+public class ClockController implements Initializable {
 	@FXML
 	private Button btnIncrement;
 	@FXML
@@ -28,8 +28,9 @@ public class Clock implements Initializable {
 	private Button btnCancel;
 	@FXML
 	private Button btnDecrement;
-	private final String highlightStyle = "-fx-background-color: yellow;";
-	private final String notHightlightStyle = "-fx-background-color: white;";
+	
+	public static final String HIGH_LIGHT_STYLE = "-fx-background-color: yellow;";
+	public static final String NON_HIGH_LIGHT_STYLE = "-fx-background-color: white;";
 
 	@FXML
 	private Calendar time;
@@ -51,6 +52,58 @@ public class Clock implements Initializable {
 	@FXML
 	private Text txtHours, txtMinutes, txtSeconds;
 
+	public Button getBtnIncrement() {
+		return btnIncrement;
+	}
+
+	public Button getBtnChange() {
+		return btnChange;
+	}
+
+	public Button getBtnCancel() {
+		return btnCancel;
+	}
+
+	public Button getBtnDecrement() {
+		return btnDecrement;
+	}
+
+	public String getHighlightStyle() {
+		return HIGH_LIGHT_STYLE;
+	}
+
+	public String getNotHightlightStyle() {
+		return NON_HIGH_LIGHT_STYLE;
+	}
+
+	public Timeline getSecondTimer() {
+		return secondTimer;
+	}
+
+	public TextFlow getTxtFlwHours() {
+		return txtFlwHours;
+	}
+
+	public TextFlow getTxtFlwMinutes() {
+		return txtFlwMinutes;
+	}
+
+	public TextFlow getTxtFlwSeconds() {
+		return txtFlwSeconds;
+	}
+
+	public Text getTxtHours() {
+		return txtHours;
+	}
+
+	public Text getTxtMinutes() {
+		return txtMinutes;
+	}
+
+	public Text getTxtSeconds() {
+		return txtSeconds;
+	}
+
 	@FXML
 	private ObservableLongValue longValue = new LongBinding() {
 		@Override
@@ -59,7 +112,7 @@ public class Clock implements Initializable {
 		}
 	};
 	
-	public Clock() {
+	public ClockController() {
 		time = Calendar.getInstance();
 		currentState = new DisplayTimeState(this);
 		secondTimer.setCycleCount(Animation.INDEFINITE);
@@ -136,31 +189,10 @@ public class Clock implements Initializable {
 
 	/**
 	 * Hightlights the units being edited based off the type of the current
-	 * state. We could have done this in the state's themselves but it is easier
-	 * to consolidate it here.
+	 * state.
 	 */
 	private void setHighlightedUnit() {
-
-		if (currentState instanceof SetHoursState) {
-			txtFlwHours.setStyle(highlightStyle);
-			txtFlwMinutes.setStyle(notHightlightStyle);
-			txtFlwSeconds.setStyle(notHightlightStyle);
-
-		} else if (currentState instanceof SetMinutesState) {
-			txtFlwHours.setStyle(notHightlightStyle);
-			txtFlwMinutes.setStyle(highlightStyle);
-			txtFlwSeconds.setStyle(notHightlightStyle);
-
-		} else if (currentState instanceof SetSecondsState) {
-			txtFlwHours.setStyle(notHightlightStyle);
-			txtFlwMinutes.setStyle(notHightlightStyle);
-			txtFlwSeconds.setStyle(highlightStyle);
-		} else {
-			txtFlwHours.setStyle(notHightlightStyle);
-			txtFlwMinutes.setStyle(notHightlightStyle);
-			txtFlwSeconds.setStyle(notHightlightStyle);
-		}
-
+		currentState.setHighlightedUnit();
 	}
 
 	/**
@@ -168,15 +200,7 @@ public class Clock implements Initializable {
 	 * states call into this
 	 */
 	public void rePaintTimeControls() {
-		if(txtHours != null){
-			txtHours.setText(Integer.toString(time.get(Calendar.HOUR_OF_DAY)));
-		}
-		if(txtMinutes != null){
-			txtMinutes.setText(Integer.toString(time.get(Calendar.MINUTE)));
-		}
-		if(txtSeconds != null){
-			txtSeconds.setText(Integer.toString(time.get(Calendar.SECOND)));
-		}
+		currentState.rePaintTimeControls();
 	}
 
 	public Calendar getTime() {
