@@ -8,7 +8,6 @@ public class SetHoursState extends StateBase{
 
 	public SetHoursState(Clock clock) {
 		super(clock);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

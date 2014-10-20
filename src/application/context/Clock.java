@@ -1,6 +1,8 @@
 package application.context;
 
+import java.net.URL;
 import java.util.Calendar;
+import java.util.ResourceBundle;
 
 import javafx.beans.Observable;
 import javafx.beans.binding.LongBinding;
@@ -8,13 +10,15 @@ import javafx.beans.value.ObservableLongValue;
 import javafx.beans.value.ObservableNumberValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import application.states.*;
+
 import java.util.Timer;
 
-public class Clock {
+public class Clock implements Initializable{
 	 @FXML private Button btnIncrement;
 	 @FXML private Button btnChange;
 	 @FXML private Button btnCancel;
@@ -71,6 +75,8 @@ public class Clock {
 		time = Calendar.getInstance();
 		currentState = new DisplayTimeState(this);
 	}
+	
+	
 	
 	/**
 	 * + button event handler.  Off loads the logic to the current state.
@@ -153,9 +159,9 @@ public class Clock {
 	 * states call into this
 	 */
 	public void rePaintTimeControls(){
-		txtHours.setText(Integer.toString(time.HOUR));
-		txtMinutes.setText(Integer.toString(time.MINUTE));
-		txtHours.setText(Integer.toString(time.SECOND));
+		txtHours.setText(Integer.toString(time.get(Calendar.HOUR_OF_DAY)));
+		txtMinutes.setText(Integer.toString(time.get(Calendar.MINUTE)));
+		txtSeconds.setText(Integer.toString(time.get(Calendar.SECOND)));
 	}
 	
 	public Calendar getTime() {
@@ -180,5 +186,11 @@ public class Clock {
 
 	protected void setLongValue(ObservableLongValue longValue) {
 		this.longValue = longValue;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		rePaintTimeControls();
+		
 	}
 }
