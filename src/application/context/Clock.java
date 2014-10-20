@@ -4,18 +4,20 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.binding.LongBinding;
 import javafx.beans.value.ObservableLongValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.util.Duration;
 import application.states.*;
-import application.util.ClockTimer;
-
-import java.util.Timer;
 
 public class Clock implements Initializable {
 	@FXML
@@ -32,12 +34,13 @@ public class Clock implements Initializable {
 	@FXML
 	private Calendar time;
 
-	private final Timer timer = new Timer();
-	private final ClockTimer clockTimer = new ClockTimer(this);
-
-	public void startTime() {
-		this.timer.scheduleAtFixedRate(clockTimer, 1000, 1000);
-	}
+	private final Timeline secondTimer = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+	    @Override
+	    public void handle(ActionEvent event) {
+	        time.add(Calendar.SECOND, 1);
+	        rePaintTimeControls();
+	    }
+	}));
 
 	@FXML
 	private IState currentState;
@@ -55,6 +58,13 @@ public class Clock implements Initializable {
 			return getTime().getTimeInMillis();
 		}
 	};
+	
+	public Clock() {
+		time = Calendar.getInstance();
+		currentState = new DisplayTimeState(this);
+		secondTimer.setCycleCount(Animation.INDEFINITE);
+		secondTimer.play();
+	}
 
 	@FXML
 	private void handleChangeButton(ActionEvent event) {
@@ -74,11 +84,6 @@ public class Clock implements Initializable {
 	@FXML
 	private void handleCancelButton(ActionEvent event) {
 		cancel();
-	}
-
-	public Clock() {
-		time = Calendar.getInstance();
-		currentState = new DisplayTimeState(this);
 	}
 
 	/**
@@ -163,9 +168,15 @@ public class Clock implements Initializable {
 	 * states call into this
 	 */
 	public void rePaintTimeControls() {
-		txtHours.setText(Integer.toString(time.get(Calendar.HOUR_OF_DAY)));
-		txtMinutes.setText(Integer.toString(time.get(Calendar.MINUTE)));
-		txtSeconds.setText(Integer.toString(time.get(Calendar.SECOND)));
+		if(txtHours != null){
+			txtHours.setText(Integer.toString(time.get(Calendar.HOUR_OF_DAY)));
+		}
+		if(txtMinutes != null){
+			txtMinutes.setText(Integer.toString(time.get(Calendar.MINUTE)));
+		}
+		if(txtSeconds != null){
+			txtSeconds.setText(Integer.toString(time.get(Calendar.SECOND)));
+		}
 	}
 
 	public Calendar getTime() {
