@@ -71,10 +71,10 @@
 				</SplitPane>
 				<AnchorPane layoutX="32.0" layoutY="87.0">
 					<children>
-						<Button fx:id="btnIncrement" mnemonicParsing="false" text="+" onAction="#handleIncrementButton" />
+						<Button fx:id="btnIncrement" mnemonicParsing="false" text="+" onAction="#handleIncrementButton" visible="false" />
 						<Button fx:id="btnChange" layoutX="61.0" mnemonicParsing="false" text="Change Mode" onAction="#handleChangeButton"/>
-						<Button fx:id="btnCancel" layoutX="170.0" mnemonicParsing="false" text="Cancel" onAction="#handleCancelButton" />
-						<Button fx:id="btnDecrement" layoutX="25.0" mnemonicParsing="false" text="-" onAction="#handleDecrementButton" />
+						<Button fx:id="btnCancel" layoutX="170.0" mnemonicParsing="false" text="Cancel" onAction="#handleCancelButton" visible="false"/>
+						<Button fx:id="btnDecrement" layoutX="25.0" mnemonicParsing="false" text="-" onAction="#handleDecrementButton" visible="false"/>
 					</children>
 				</AnchorPane>
 			</children>

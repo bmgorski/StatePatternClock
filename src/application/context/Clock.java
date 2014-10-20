@@ -70,7 +70,6 @@ public class Clock {
 	public Clock(){
 		time = Calendar.getInstance();
 		currentState = new DisplayTimeState(this);
-		
 	}
 	
 	/**
@@ -120,12 +119,6 @@ public class Clock {
 		btnCancel.setVisible(showButtons);
 	}
 	
-	private void updateTimeControls(){
-		txtHours.setText(Integer.toString(time.HOUR));
-		txtMinutes.setText(Integer.toString(time.MINUTE));
-		txtHours.setText(Integer.toString(time.SECOND));
-	}
-	
 	/**
 	 * Hightlights the units being edited based off the type of the current state.  
 	 * We could have done this in the state's themselves but it is easier to consolidate it here.
@@ -160,7 +153,9 @@ public class Clock {
 	 * states call into this
 	 */
 	public void rePaintTimeControls(){
-		//TODO add code to redraw the time controls
+		txtHours.setText(Integer.toString(time.HOUR));
+		txtMinutes.setText(Integer.toString(time.MINUTE));
+		txtHours.setText(Integer.toString(time.SECOND));
 	}
 	
 	public Calendar getTime() {
