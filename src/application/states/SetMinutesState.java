@@ -14,16 +14,18 @@ public class SetMinutesState extends StateBase {
 	@Override
 	public void increment() {
 		aClock.getTime().add(Calendar.MINUTE, 1);
-		if(aClock.getTxtMinutes() != null){
-			aClock.getTxtMinutes().setText(Integer.toString(aClock.getTime().get(Calendar.MINUTE)));
+		if (aClock.getTxtMinutes() != null) {
+			aClock.getTxtMinutes().setText(
+					Integer.toString(aClock.getTime().get(Calendar.MINUTE)));
 		}
 	}
 
 	@Override
 	public void decrement() {
 		aClock.getTime().add(Calendar.MINUTE, -1);
-		if(aClock.getTxtMinutes() != null){
-			aClock.getTxtMinutes().setText(Integer.toString(aClock.getTime().get(Calendar.MINUTE)));
+		if (aClock.getTxtMinutes() != null) {
+			aClock.getTxtMinutes().setText(
+					Integer.toString(aClock.getTime().get(Calendar.MINUTE)));
 		}
 	}
 
@@ -31,16 +33,21 @@ public class SetMinutesState extends StateBase {
 	public void setHighlightedUnit() {
 		aClock.getTxtFlwHours().setStyle(ClockController.NON_HIGH_LIGHT_STYLE);
 		aClock.getTxtFlwMinutes().setStyle(ClockController.HIGH_LIGHT_STYLE);
-		aClock.getTxtFlwSeconds().setStyle(ClockController.NON_HIGH_LIGHT_STYLE);
+		aClock.getTxtFlwSeconds()
+				.setStyle(ClockController.NON_HIGH_LIGHT_STYLE);
 	}
 
 	@Override
 	public void rePaintTimeControls() {
-		if(aClock.getTxtHours() != null){
-			aClock.getTxtHours().setText(Integer.toString(aClock.getTime().get(Calendar.HOUR_OF_DAY)));
+		if (aClock.getTxtHours() != null) {
+			aClock.getTxtHours()
+					.setText(
+							Integer.toString(aClock.getTime().get(
+									Calendar.HOUR_OF_DAY)));
 		}
-		if(aClock.getTxtSeconds() != null){
-			aClock.getTxtSeconds().setText(Integer.toString(aClock.getTime().get(Calendar.SECOND)));
+		if (aClock.getTxtSeconds() != null) {
+			aClock.getTxtSeconds().setText(
+					Integer.toString(aClock.getTime().get(Calendar.SECOND)));
 		}
 	}
 

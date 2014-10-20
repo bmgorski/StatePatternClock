@@ -7,8 +7,6 @@ import java.util.ResourceBundle;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.binding.LongBinding;
-import javafx.beans.value.ObservableLongValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,20 +26,21 @@ public class ClockController implements Initializable {
 	private Button btnCancel;
 	@FXML
 	private Button btnDecrement;
-	
+
 	public static final String HIGH_LIGHT_STYLE = "-fx-background-color: yellow;";
 	public static final String NON_HIGH_LIGHT_STYLE = "-fx-background-color: white;";
 
 	@FXML
 	private Calendar time;
 
-	private final Timeline secondTimer = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-	    @Override
-	    public void handle(ActionEvent event) {
-	        time.add(Calendar.SECOND, 1);
-	        rePaintTimeControls();
-	    }
-	}));
+	private final Timeline secondTimer = new Timeline(new KeyFrame(
+			Duration.seconds(1), new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					time.add(Calendar.SECOND, 1);
+					rePaintTimeControls();
+				}
+			}));
 
 	@FXML
 	private IState currentState;
@@ -104,14 +103,6 @@ public class ClockController implements Initializable {
 		return txtSeconds;
 	}
 
-	@FXML
-	private ObservableLongValue longValue = new LongBinding() {
-		@Override
-		protected long computeValue() {
-			return getTime().getTimeInMillis();
-		}
-	};
-	
 	public ClockController() {
 		time = Calendar.getInstance();
 		currentState = new DisplayTimeState(this);
@@ -217,14 +208,6 @@ public class ClockController implements Initializable {
 
 	public void setCurrentState(IState currentState) {
 		this.currentState = currentState;
-	}
-
-	public ObservableLongValue getLongValue() {
-		return longValue;
-	}
-
-	protected void setLongValue(ObservableLongValue longValue) {
-		this.longValue = longValue;
 	}
 
 	@Override

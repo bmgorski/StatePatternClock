@@ -3,7 +3,7 @@ package application.states;
 import application.context.ClockController;
 
 public interface IState {
-	
+
 	ClockController getClock();
 
 	void increment();
@@ -13,8 +13,8 @@ public interface IState {
 	void cancel();
 
 	void changeMode();
-	
+
 	void setHighlightedUnit();
-	
+
 	void rePaintTimeControls();
 }
