@@ -6,10 +6,17 @@ import javafx.beans.Observable;
 import javafx.beans.binding.LongBinding;
 import javafx.beans.value.ObservableLongValue;
 import javafx.beans.value.ObservableNumberValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import application.states.*;
 
 public class Clock {
+	 @FXML private Button btnIncrement;
+	 @FXML private Button btnChange;
+	 @FXML private Button btnCancel;
+	 @FXML private Button btnDecrement;
+	 
 	@FXML
 	private Calendar time;
 	
@@ -24,6 +31,26 @@ public class Clock {
 		}
 	}; 
 
+	@FXML
+	private void handleChangeButton(ActionEvent event){
+		changeMode();
+	}
+	
+	@FXML
+	private void handleDecrementButton(ActionEvent event){
+		decrement();
+	}
+	
+	@FXML
+	private void handleIncrementButton(ActionEvent event){
+		increment();
+	}
+	
+	@FXML
+	private void handleCancelButton(ActionEvent event){
+		cancel();
+	}
+	
 	public Clock(){
 		time = Calendar.getInstance();
 		currentState = new DisplayTimeState(this);
@@ -70,11 +97,9 @@ public class Clock {
 	 * @param showButtons - true means show +- and cancel buttons false hides them
 	 */
 	public void toggleUpdateButtons(boolean showButtons){
-		if(showButtons){
-			//TODO  add code to show +- cancel buttons
-		}else{
-			//TODO add code to hide +- cancel buttons
-		}
+		btnDecrement.setVisible(showButtons);
+		btnIncrement.setVisible(showButtons);
+		btnCancel.setVisible(showButtons);
 	}
 	
 	/**
