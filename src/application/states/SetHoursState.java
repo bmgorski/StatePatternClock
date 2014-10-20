@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import application.context.*;
 
-public class SetHoursState extends StateBase{
+public class SetHoursState extends StateBase {
 
 	public SetHoursState(Clock clock) {
 		super(clock);
@@ -25,7 +25,7 @@ public class SetHoursState extends StateBase{
 	@Override
 	public void timerTick() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -2,7 +2,7 @@ package application.states;
 
 import application.context.*;
 
-public class DisplayTimeState extends StateBase{
+public class DisplayTimeState extends StateBase {
 
 	public DisplayTimeState(Clock clock) {
 		super(clock);
@@ -14,7 +14,7 @@ public class DisplayTimeState extends StateBase{
 	 */
 	@Override
 	public void increment() {
-		
+
 	}
 
 	/**
@@ -23,13 +23,11 @@ public class DisplayTimeState extends StateBase{
 	@Override
 	public void decrement() {
 
-		
 	}
 
 	@Override
 	public void timerTick() {
-		
-		
+
 	}
 
 }

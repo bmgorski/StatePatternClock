@@ -4,10 +4,8 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
-import javafx.beans.Observable;
 import javafx.beans.binding.LongBinding;
 import javafx.beans.value.ObservableLongValue;
-import javafx.beans.value.ObservableNumberValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,155 +13,161 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import application.states.*;
+import application.util.ClockTimer;
 
 import java.util.Timer;
 
-public class Clock implements Initializable{
-	 @FXML private Button btnIncrement;
-	 @FXML private Button btnChange;
-	 @FXML private Button btnCancel;
-	 @FXML private Button btnDecrement;
-	private final String highlightStyle="-fx-background-color: yellow;";
-	private final String notHightlightStyle="-fx-background-color: white;";
-		
-	 
+public class Clock implements Initializable {
+	@FXML
+	private Button btnIncrement;
+	@FXML
+	private Button btnChange;
+	@FXML
+	private Button btnCancel;
+	@FXML
+	private Button btnDecrement;
+	private final String highlightStyle = "-fx-background-color: yellow;";
+	private final String notHightlightStyle = "-fx-background-color: white;";
+
 	@FXML
 	private Calendar time;
-	
-	private Timer timer;
-	
-	
+
+	private final Timer timer = new Timer();
+	private final ClockTimer clockTimer = new ClockTimer(this);
+
+	public void startTime() {
+		this.timer.scheduleAtFixedRate(clockTimer, 1000, 1000);
+	}
+
 	@FXML
 	private IState currentState;
-	
+
 	@FXML
-	private TextFlow txtFlwHours, txtFlwMinutes,txtFlwSeconds;
-	
+	private TextFlow txtFlwHours, txtFlwMinutes, txtFlwSeconds;
+
 	@FXML
-	private Text txtHours,	txtMinutes, txtSeconds;
-	
+	private Text txtHours, txtMinutes, txtSeconds;
+
 	@FXML
 	private ObservableLongValue longValue = new LongBinding() {
 		@Override
 		protected long computeValue() {
 			return getTime().getTimeInMillis();
 		}
-	}; 
+	};
 
 	@FXML
-	private void handleChangeButton(ActionEvent event){
+	private void handleChangeButton(ActionEvent event) {
 		changeMode();
 	}
-	
+
 	@FXML
-	private void handleDecrementButton(ActionEvent event){
+	private void handleDecrementButton(ActionEvent event) {
 		decrement();
 	}
-	
+
 	@FXML
-	private void handleIncrementButton(ActionEvent event){
+	private void handleIncrementButton(ActionEvent event) {
 		increment();
 	}
-	
+
 	@FXML
-	private void handleCancelButton(ActionEvent event){
+	private void handleCancelButton(ActionEvent event) {
 		cancel();
 	}
-	
-	
-	public Clock(){
+
+	public Clock() {
 		time = Calendar.getInstance();
 		currentState = new DisplayTimeState(this);
 	}
-	
-	
-	
+
 	/**
-	 * + button event handler.  Off loads the logic to the current state.
+	 * + button event handler. Off loads the logic to the current state.
 	 */
-	public void increment(){
+	public void increment() {
 		currentState.increment();
 	}
-	
+
 	/**
-	 * - button event handler.  Off loads the logic to current state.
+	 * - button event handler. Off loads the logic to current state.
 	 */
-	public void decrement(){
+	public void decrement() {
 		currentState.decrement();
 	}
-	
+
 	/**
 	 * change mode button event handler
 	 */
-	public void changeMode(){
+	public void changeMode() {
 		currentState.changeMode();
 	}
-	
+
 	/**
 	 * cancel button event handler
 	 */
-	public void cancel(){
+	public void cancel() {
 		currentState.cancel();
 	}
-	
+
 	/**
 	 * @param nextState
-	 * states call this method from their changeMode() implementation
+	 *            states call this method from their changeMode() implementation
 	 */
-	public void setState(IState nextState){
+	public void setState(IState nextState) {
 		currentState = nextState;
 		setHighlightedUnit();
-		
+
 	}
-	
+
 	/**
-	 * @param showButtons - true means show +- and cancel buttons false hides them
+	 * @param showButtons
+	 *            - true means show +- and cancel buttons false hides them
 	 */
-	public void toggleUpdateButtons(boolean showButtons){
+	public void toggleUpdateButtons(boolean showButtons) {
 		btnDecrement.setVisible(showButtons);
 		btnIncrement.setVisible(showButtons);
 		btnCancel.setVisible(showButtons);
 	}
-	
+
 	/**
-	 * Hightlights the units being edited based off the type of the current state.  
-	 * We could have done this in the state's themselves but it is easier to consolidate it here.
+	 * Hightlights the units being edited based off the type of the current
+	 * state. We could have done this in the state's themselves but it is easier
+	 * to consolidate it here.
 	 */
-	private void setHighlightedUnit(){
-		
-		if(currentState instanceof SetHoursState){
+	private void setHighlightedUnit() {
+
+		if (currentState instanceof SetHoursState) {
 			txtFlwHours.setStyle(highlightStyle);
 			txtFlwMinutes.setStyle(notHightlightStyle);
 			txtFlwSeconds.setStyle(notHightlightStyle);
-			
-		}else if (currentState instanceof SetMinutesState){
+
+		} else if (currentState instanceof SetMinutesState) {
 			txtFlwHours.setStyle(notHightlightStyle);
 			txtFlwMinutes.setStyle(highlightStyle);
 			txtFlwSeconds.setStyle(notHightlightStyle);
-			
-		}else if (currentState instanceof SetSecondsState){
+
+		} else if (currentState instanceof SetSecondsState) {
 			txtFlwHours.setStyle(notHightlightStyle);
 			txtFlwMinutes.setStyle(notHightlightStyle);
 			txtFlwSeconds.setStyle(highlightStyle);
-		}else{
+		} else {
 			txtFlwHours.setStyle(notHightlightStyle);
 			txtFlwMinutes.setStyle(notHightlightStyle);
 			txtFlwSeconds.setStyle(notHightlightStyle);
 		}
-		
-		
+
 	}
-	
+
 	/**
 	 * this will update the values for the hours, minutes, seconds controls.
 	 * states call into this
 	 */
-	public void rePaintTimeControls(){
+	public void rePaintTimeControls() {
 		txtHours.setText(Integer.toString(time.get(Calendar.HOUR_OF_DAY)));
 		txtMinutes.setText(Integer.toString(time.get(Calendar.MINUTE)));
 		txtSeconds.setText(Integer.toString(time.get(Calendar.SECOND)));
 	}
-	
+
 	public Calendar getTime() {
 		return time;
 	}
@@ -191,6 +195,6 @@ public class Clock implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		rePaintTimeControls();
-		
+
 	}
 }

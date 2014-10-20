@@ -4,24 +4,24 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableObjectValue;
 
-public class ClockModel implements ObservableObjectValue<ClockModel>{
+public class ClockModel implements ObservableObjectValue<ClockModel> {
 
 	@Override
 	public void addListener(InvalidationListener listener) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void removeListener(InvalidationListener listener) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void addListener(ChangeListener<? super ClockModel> listener) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class ClockModel implements ObservableObjectValue<ClockModel>{
 	@Override
 	public void removeListener(ChangeListener<? super ClockModel> listener) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

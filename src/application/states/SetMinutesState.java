@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import application.context.*;
 
-public class SetMinutesState extends StateBase{
+public class SetMinutesState extends StateBase {
 
 	public SetMinutesState(Clock clock) {
 		super(clock);
@@ -26,7 +26,7 @@ public class SetMinutesState extends StateBase{
 	@Override
 	public void timerTick() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
