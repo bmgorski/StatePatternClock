@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.6" icons="true" automaticImage="JPEG">  
+  <object id="1" language="java" name="application.context.ClockController" project="StatePatternClock" 
+    file="/StatePatternClock/src/application/context/ClockController.java" binary="false" label="clockController" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="67" y="0"/>    
+    <execution id="2">      
+      <position height="178" width="0" x="0" y="78"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="115" width="0" x="0" y="120"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="178" width="0" x="0" y="273"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="115" width="0" x="0" y="315"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="304" width="0" x="0" y="467"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="241" width="0" x="0" y="509"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="178" width="0" x="0" y="785"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="115" width="0" x="0" y="827"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="178" width="0" x="0" y="982"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="115" width="0" x="0" y="1024"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="178" width="0" x="0" y="1177"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="115" width="0" x="0" y="1219"/>    
+    </execution>    
+    <execution id="32">      
+      <position height="178" width="0" x="0" y="1370"/>    
+    </execution>    
+    <execution id="34">      
+      <position height="115" width="0" x="0" y="1412"/>    
+    </execution>    
+    <execution id="37">      
+      <position height="178" width="0" x="0" y="1567"/>    
+    </execution>    
+    <execution id="39">      
+      <position height="115" width="0" x="0" y="1609"/>    
+    </execution>    
+    <execution id="42">      
+      <position height="178" width="0" x="0" y="1763"/>    
+    </execution>    
+    <execution id="44">      
+      <position height="115" width="0" x="0" y="1805"/>    
+    </execution>    
+    <execution id="47">      
+      <position height="178" width="0" x="0" y="1961"/>    
+    </execution>    
+    <execution id="49">      
+      <position height="115" width="0" x="0" y="2003"/>    
+    </execution>    
+    <execution id="52">      
+      <position height="207" width="0" x="0" y="2157"/>    
+    </execution>    
+    <execution id="54">      
+      <position height="144" width="0" x="0" y="2199"/>    
+    </execution>    
+    <execution id="57">      
+      <position height="178" width="0" x="0" y="2352"/>    
+    </execution>    
+    <execution id="59">      
+      <position height="115" width="0" x="0" y="2394"/>    
+    </execution>    
+    <execution id="62">      
+      <position height="126" width="0" x="0" y="2546"/>    
+    </execution>    
+    <execution id="64">      
+      <position height="63" width="0" x="0" y="2588"/>    
+    </execution>    
+    <execution id="67">      
+      <position height="178" width="0" x="0" y="2686"/>    
+    </execution>    
+    <execution id="69">      
+      <position height="115" width="0" x="0" y="2728"/>    
+    </execution>    
+    <execution id="72">      
+      <position height="178" width="0" x="0" y="2881"/>    
+    </execution>    
+    <execution id="74">      
+      <position height="115" width="0" x="0" y="2923"/>    
+    </execution>    
+    <execution id="77">      
+      <position height="126" width="0" x="0" y="3075"/>    
+    </execution>    
+    <execution id="79">      
+      <position height="63" width="0" x="0" y="3117"/>    
+    </execution>    
+    <execution id="82">      
+      <position height="178" width="0" x="0" y="3217"/>    
+    </execution>    
+    <execution id="84">      
+      <position height="115" width="0" x="0" y="3259"/>    
+    </execution>    
+    <execution id="87">      
+      <position height="178" width="0" x="0" y="3415"/>    
+    </execution>    
+    <execution id="89">      
+      <position height="115" width="0" x="0" y="3457"/>    
+    </execution>  
+  </object>  
+  <object id="92" language="java" name="application.states.IState" project="StatePatternClock" 
+    file="/StatePatternClock/src/application/states/IState.java" binary="false" label="currentState" type="interface" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="63" width="0" x="0" y="151"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="63" width="0" x="0" y="346"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="189" width="0" x="0" y="540"/>    
+    </execution>    
+    <execution id="21">      
+      <position height="63" width="0" x="0" y="858"/>    
+    </execution>    
+    <execution id="26">      
+      <position height="63" width="0" x="0" y="1055"/>    
+    </execution>    
+    <execution id="31">      
+      <position height="63" width="0" x="0" y="1250"/>    
+    </execution>    
+    <execution id="36">      
+      <position height="63" width="0" x="0" y="1443"/>    
+    </execution>    
+    <execution id="41">      
+      <position height="63" width="0" x="0" y="1640"/>    
+    </execution>    
+    <execution id="46">      
+      <position height="63" width="0" x="0" y="1836"/>    
+    </execution>    
+    <execution id="51">      
+      <position height="63" width="0" x="0" y="2034"/>    
+    </execution>    
+    <execution id="56">      
+      <position height="92" width="0" x="0" y="2230"/>    
+    </execution>    
+    <execution id="61">      
+      <position height="63" width="0" x="0" y="2425"/>    
+    </execution>    
+    <execution id="71">      
+      <position height="63" width="0" x="0" y="2759"/>    
+    </execution>    
+    <execution id="76">      
+      <position height="63" width="0" x="0" y="2954"/>    
+    </execution>    
+    <execution id="86">      
+      <position height="63" width="0" x="0" y="3290"/>    
+    </execution>    
+    <execution id="91">      
+      <position height="63" width="0" x="0" y="3488"/>    
+    </execution>  
+  </object>  
+  <object id="125" language="java" name="application.states.DisplayTimeState" project="StatePatternClock" 
+    file="/StatePatternClock/src/application/states/DisplayTimeState.java" binary="false" label="displayTimeState" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="465" y="0"/>    
+    <execution id="94">      
+      <position height="21" width="122" x="204" y="172"/>    
+    </execution>    
+    <execution id="96">      
+      <position height="21" width="122" x="204" y="367"/>    
+    </execution>    
+    <execution id="98">      
+      <position height="147" width="122" x="204" y="561"/>    
+    </execution>    
+    <execution id="108">      
+      <position height="21" width="106" x="188" y="1661"/>    
+    </execution>    
+    <execution id="124">      
+      <position height="21" width="122" x="204" y="3509"/>    
+    </execution>  
+  </object>  
+  <object id="130" language="java" name="application.context.ClockController" project="StatePatternClock" 
+    file="/StatePatternClock/src/application/context/ClockController.java" binary="false" label="clockController1" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="127">      
+      <position height="21" width="0" x="0" y="582"/>    
+    </execution>  
+  </object>  
+  <object id="131" language="java" name="application.context.ClockController" project="StatePatternClock" 
+    file="/StatePatternClock/src/application/context/ClockController.java" binary="false" label="clockController2" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="129">      
+      <position height="21" width="0" x="0" y="666"/>    
+    </execution>  
+  </object>  
+  <object id="132" language="java" name="application.states.SetHoursState" project="StatePatternClock" 
+    file="/StatePatternClock/src/application/states/SetHoursState.java" binary="false" label="setHoursState" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="600" y="0"/>    
+    <execution id="100">      
+      <position height="21" width="90" x="496" y="879"/>    
+    </execution>    
+    <execution id="102">      
+      <position height="21" width="106" x="560" y="1076"/>    
+    </execution>    
+    <execution id="104">      
+      <position height="21" width="90" x="496" y="1271"/>    
+    </execution>    
+    <execution id="106">      
+      <position height="21" width="106" x="560" y="1464"/>    
+    </execution>    
+    <execution id="110">      
+      <position height="21" width="90" x="496" y="1857"/>    
+    </execution>  
+  </object>  
+  <object id="133" language="java" name="application.states.SetMinutesState" project="StatePatternClock" 
+    file="/StatePatternClock/src/application/states/SetMinutesState.java" binary="false" label="setMinutesState" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="709" y="0"/>    
+    <execution id="66">      
+      <position height="21" width="101" x="590" y="2609"/>    
+    </execution>    
+    <execution id="118">      
+      <position height="21" width="117" x="670" y="2780"/>    
+    </execution>    
+    <execution id="112">      
+      <position height="21" width="117" x="670" y="2055"/>    
+    </execution>    
+    <execution id="114">      
+      <position height="21" width="117" x="670" y="2280"/>    
+    </execution>    
+    <execution id="116">      
+      <position height="21" width="117" x="670" y="2446"/>    
+    </execution>    
+    <execution id="120">      
+      <position height="21" width="101" x="590" y="2975"/>    
+    </execution>  
+  </object>  
+  <object id="134" language="java" name="application.states.SetSecondsState" project="StatePatternClock" 
+    file="/StatePatternClock/src/application/states/SetSecondsState.java" binary="false" label="setSecondsState" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="624" y="0"/>    
+    <execution id="81">      
+      <position height="21" width="122" x="791" y="3138"/>    
+    </execution>    
+    <execution id="122">      
+      <position height="21" width="106" x="695" y="3311"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="8" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="13" operation="changeMode():void">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="changeMode():void">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="18" operation="increment():void">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="increment():void">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="23" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="28" operation="decrement():void">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="decrement():void">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="33" operation="cancel():void">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="34"/>  
+  </message>  
+  <message id="35" operation="cancel():void">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="36"/>  
+  </message>  
+  <message id="38" operation="changeMode():void">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>  
+  <message id="40" operation="changeMode():void">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="41"/>  
+  </message>  
+  <message id="43" operation="changeMode():void">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="44"/>  
+  </message>  
+  <message id="45" operation="changeMode():void">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>  
+  <message id="48" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="49"/>  
+  </message>  
+  <message id="50" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="51"/>  
+  </message>  
+  <message id="53" operation="increment():void">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="54"/>  
+  </message>  
+  <message id="55" operation="increment():void">    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="56"/>  
+  </message>  
+  <message id="58" operation="changeMode():void">    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="59"/>  
+  </message>  
+  <message id="60" operation="changeMode():void">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="61"/>  
+  </message>  
+  <message id="63" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="62"/>    
+    <end type="TARGET" refId="64"/>  
+  </message>  
+  <message id="65" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="66"/>  
+  </message>  
+  <message id="68" operation="increment():void">    
+    <end type="SOURCE" refId="67"/>    
+    <end type="TARGET" refId="69"/>  
+  </message>  
+  <message id="70" operation="increment():void">    
+    <end type="SOURCE" refId="69"/>    
+    <end type="TARGET" refId="71"/>  
+  </message>  
+  <message id="73" operation="changeMode():void">    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="74"/>  
+  </message>  
+  <message id="75" operation="changeMode():void">    
+    <end type="SOURCE" refId="74"/>    
+    <end type="TARGET" refId="76"/>  
+  </message>  
+  <message id="78" operation="increment():void">    
+    <end type="SOURCE" refId="77"/>    
+    <end type="TARGET" refId="79"/>  
+  </message>  
+  <message id="80" operation="increment():void">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="81"/>  
+  </message>  
+  <message id="83" operation="changeMode():void">    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="84"/>  
+  </message>  
+  <message id="85" operation="changeMode():void">    
+    <end type="SOURCE" refId="84"/>    
+    <end type="TARGET" refId="86"/>  
+  </message>  
+  <message id="88" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="87"/>    
+    <end type="TARGET" refId="89"/>  
+  </message>  
+  <message id="90" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="89"/>    
+    <end type="TARGET" refId="91"/>  
+  </message>  
+  <message id="93" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="94"/>  
+  </message>  
+  <message id="95" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="96"/>  
+  </message>  
+  <message id="97" operation="changeMode():void">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="98"/>  
+  </message>  
+  <message id="99" operation="increment():void">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="100"/>  
+  </message>  
+  <message id="101" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="102"/>  
+  </message>  
+  <message id="103" operation="decrement():void">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="104"/>  
+  </message>  
+  <message id="105" operation="cancel():void">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="106"/>  
+  </message>  
+  <message id="107" operation="changeMode():void">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="108"/>  
+  </message>  
+  <message id="109" operation="changeMode():void">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="110"/>  
+  </message>  
+  <message id="111" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="112"/>  
+  </message>  
+  <message id="113" operation="increment():void">    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="114"/>  
+  </message>  
+  <message id="115" operation="changeMode():void">    
+    <end type="SOURCE" refId="61"/>    
+    <end type="TARGET" refId="116"/>  
+  </message>  
+  <message id="117" operation="increment():void">    
+    <end type="SOURCE" refId="71"/>    
+    <end type="TARGET" refId="118"/>  
+  </message>  
+  <message id="119">    
+    <end type="SOURCE" refId="76"/>    
+    <end type="TARGET" refId="120"/>  
+  </message>  
+  <message id="121" operation="changeMode():void">    
+    <end type="SOURCE" refId="86"/>    
+    <end type="TARGET" refId="122"/>  
+  </message>  
+  <message id="123" operation="rePaintTimeControls():void">    
+    <end type="SOURCE" refId="91"/>    
+    <end type="TARGET" refId="124"/>  
+  </message>  
+  <message id="126" operation="setState(application.states.IState):void">    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="127"/>  
+  </message>  
+  <message id="128" operation="toggleUpdateButtons(boolean):void">    
+    <end type="SOURCE" refId="98"/>    
+    <end type="TARGET" refId="129"/>  
+  </message>
+</sequence-diagram>

@@ -3,7 +3,7 @@ package application.states;
 import application.context.ClockController;
 
 public interface IState {
-
+	
 	ClockController getClock();
 
 	void increment();
